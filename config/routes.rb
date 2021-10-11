@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users, only: []
 
   scope module: :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: [:create] do
         collection do
-          get :teste
+          post :sign_in, controller: :sessions, action: :create
+          post :teste
         end
       end
     end
