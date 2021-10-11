@@ -1,12 +1,12 @@
-class Api::V1::UsersController < ActionController::API
-  before_action :authenticate_user!, only: [:teste]
+class Api::V1::UsersController < Api::ApiController
+  before_action :authenticate_user_from_token!, except: [:create]
 
   def create
     user = User.new(email: params[:email], password: params[:password])
 
-    return render json: user, status: :ok if user.save
+    return render_created(user) if user.save
 
-    render status: :unprocessable_entity
+    render_unprocessable_entity_error(user)
   end
 
   def teste
