@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :movies_api, only: [] do
         collection do
           get :fetch_by_name
+          get :fetch_popular
         end
       end
 
