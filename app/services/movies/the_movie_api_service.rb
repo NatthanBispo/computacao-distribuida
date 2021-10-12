@@ -5,7 +5,17 @@ class Movies::TheMovieApiService
   LANGUAGE = 'pt-BR'
 
   def fetch_by_name(name, page)
-    HTTParty.get("#{URL}/search/movie?api_key=#{API_KEY}&language=#{LANGUAGE}&query=#{name}&page=#{page}&include_adult=false").parsed_response
+    make_request("#{URL}/search/movie?api_key=#{API_KEY}&language=#{LANGUAGE}&query=#{name}&page=#{page}&include_adult=false")
+  end
+
+  def fetch_by_id(id)
+    make_request("#{URL}/movie/#{id}?api_key=#{API_KEY}&language=#{LANGUAGE}")
+  end
+
+  private
+
+  def make_request(url)
+    HTTParty.get(url).parsed_response
   end
 
 end

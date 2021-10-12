@@ -9,9 +9,31 @@ Rails.application.routes.draw do
           post :teste
         end
       end
+
       resources :movies_api, only: [] do
         collection do
           get :fetch_by_name
+        end
+      end
+
+      resources :favorites, only: [:index] do
+        collection do
+          put 'add/:movie_id', to: 'favorites#add'
+          put 'remove/:movie_id', to: 'favorites#remove'
+        end
+      end
+
+      resources :watch_laters, only: [:index] do
+        collection do
+          put 'add/:movie_id', to: 'watch_laters#add'
+          put 'remove/:movie_id', to: 'watch_laters#remove'
+        end
+      end
+
+      resources :watcheds, only: [:index] do
+        collection do
+          put 'add/:movie_id', to: 'watcheds#add'
+          put 'remove/:movie_id', to: 'watcheds#remove'
         end
       end
     end
