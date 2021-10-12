@@ -9,6 +9,11 @@ Rails.application.routes.draw do
           post :teste
         end
       end
+      resources :movies_api, only: [] do
+        collection do
+          get :fetch_by_name
+        end
+      end
     end
   end
 end
