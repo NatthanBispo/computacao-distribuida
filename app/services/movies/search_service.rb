@@ -23,8 +23,9 @@ class Movies::SearchService < BusinessProcess::Base
     @movie = Movie.create(
       api_id: movie_parse["id"],
       title: movie_parse["title"],
-      poster_path: movie_parse["poster_path"],
+      imdb_id: movie_parse["imdb_id"],
       overview: movie_parse["overview"],
+      poster_path: movie_parse["poster_path"]
     )
   end
 

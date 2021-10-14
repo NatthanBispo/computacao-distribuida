@@ -2,8 +2,9 @@ class CreateTables < ActiveRecord::Migration[6.1]
   def change
     create_table :movies do |t|
       t.integer :api_id
+      t.string :imdb_id
       t.string :title
-      t.string :overview
+      t.text :overview
       t.string :poster_path
 
       t.belongs_to :favorites

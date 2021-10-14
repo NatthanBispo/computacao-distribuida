@@ -1,6 +1,6 @@
 class Api::V1::WatchLatersController < Api::ApiController
   before_action :authenticate_user_from_token!
-  before_action :search_movie
+  before_action :search_movie, except: [:index]
 
   def index
     render_success(serialize_resource_list(current_user.watch_later.movies, MovieSerializer))

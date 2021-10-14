@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(version: 2021_10_12_163638) do
 
   create_table "movies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "api_id"
+    t.string "imdb_id"
     t.string "title"
-    t.string "overview"
+    t.text "overview"
     t.string "poster_path"
     t.bigint "favorites_id"
     t.bigint "watch_laters_id"
