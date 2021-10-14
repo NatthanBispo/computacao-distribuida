@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :movies_api, only: [] do
+      resources :movies, only: [] do
         collection do
           get :fetch_by_name
           get :fetch_popular

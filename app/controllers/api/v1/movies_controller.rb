@@ -1,4 +1,4 @@
-class Api::V1::MoviesApiController < Api::ApiController
+class Api::V1::MoviesController < Api::ApiController
   before_action :authenticate_user_from_token!, except: [:create]
   before_action :api_the_movie
 
