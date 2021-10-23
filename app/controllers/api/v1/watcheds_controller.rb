@@ -18,6 +18,18 @@ class Api::V1::WatchedsController < Api::ApiController
     render_success(current_user.watched&.movies)
   end
 
+  def handle
+    has = current_user.watched.movies.find_by(id: @movie.id)
+
+    if has.present?
+      current_user.watched.remove(@movie)
+    else
+      current_user.watched.add(@movie)
+    end
+
+    render_success(current_user.watched&.movies)
+  end
+
   private
 
   def search_movie

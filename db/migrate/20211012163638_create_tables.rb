@@ -6,6 +6,7 @@ class CreateTables < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :overview
       t.string :poster_path
+      t.float :vote_average, default: 0.0
 
       t.belongs_to :favorites
       t.belongs_to :watch_laters

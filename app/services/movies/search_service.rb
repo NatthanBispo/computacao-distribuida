@@ -25,7 +25,8 @@ class Movies::SearchService < BusinessProcess::Base
       title: movie_parse["title"],
       imdb_id: movie_parse["imdb_id"],
       overview: movie_parse["overview"],
-      poster_path: movie_parse["poster_path"]
+      poster_path: movie_parse["poster_path"],
+      vote_average: movie_parse["vote_average"]
     )
   end
 

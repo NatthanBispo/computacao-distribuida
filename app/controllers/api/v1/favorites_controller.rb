@@ -18,6 +18,18 @@ class Api::V1::FavoritesController < Api::ApiController
     render_success(current_user.favorite&.movies)
   end
 
+  def handle
+    has = current_user.favorite.movies.find_by(id: @movie.id)
+
+    if has.present?
+      current_user.favorite.remove(@movie)
+    else
+      current_user.favorite.add(@movie)
+    end
+
+    render_success(current_user.favorite&.movies)
+  end
+
   private
 
   def search_movie

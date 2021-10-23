@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       resources :users, only: [:create] do
         collection do
           post :sign_in, controller: :sessions, action: :create
-          post :teste
         end
       end
 
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
         collection do
           get :fetch_by_name
           get :fetch_popular
+          get :my_lists
         end
       end
 
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         collection do
           put 'add/:movie_id', to: 'favorites#add'
           put 'remove/:movie_id', to: 'favorites#remove'
+          put 'handle/:movie_id', to: 'favorites#handle'
         end
       end
 
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
         collection do
           put 'add/:movie_id', to: 'watch_laters#add'
           put 'remove/:movie_id', to: 'watch_laters#remove'
+          put 'handle/:movie_id', to: 'watch_laters#handle'
         end
       end
 
@@ -35,6 +37,7 @@ Rails.application.routes.draw do
         collection do
           put 'add/:movie_id', to: 'watcheds#add'
           put 'remove/:movie_id', to: 'watcheds#remove'
+          put 'handle/:movie_id', to: 'watcheds#handle'
         end
       end
     end

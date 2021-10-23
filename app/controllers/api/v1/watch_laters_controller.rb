@@ -18,6 +18,18 @@ class Api::V1::WatchLatersController < Api::ApiController
     render_success(current_user.watch_later&.movies)
   end
 
+  def handle
+    has = current_user.watch_later.movies.find_by(id: @movie.id)
+
+    if has.present?
+      current_user.watch_later.remove(@movie)
+    else
+      current_user.watch_later.add(@movie)
+    end
+
+    render_success(current_user.watch_later&.movies)
+  end
+
   private
 
   def search_movie

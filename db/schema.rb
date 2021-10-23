@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_163638) do
     t.string "title"
     t.text "overview"
     t.string "poster_path"
+    t.float "vote_average", default: 0.0
     t.bigint "favorites_id"
     t.bigint "watch_laters_id"
     t.bigint "watcheds_id"

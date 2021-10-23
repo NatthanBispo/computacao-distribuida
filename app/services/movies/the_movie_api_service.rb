@@ -37,6 +37,7 @@ class Movies::TheMovieApiService
         title: movie["title"],
         imdb_id: movie["imdb_id"],
         overview: movie["overview"],
+        vote_average: movie["vote_average"],
         poster_path: "https://image.tmdb.org/t/p/w500#{movie["poster_path"]}"
       }
     end

@@ -10,6 +10,14 @@ class Api::V1::MoviesController < Api::ApiController
     render_success(@api.fetch_popular)
   end
 
+  def my_lists
+    render_success({
+      is_favorite: current_user.favorite.movies.find_by(api_id: params[:movie_id]).present?,
+      is_watched: current_user.watched.movies.find_by(api_id: params[:movie_id]).present?,
+      is_watch_later: current_user.watch_later.movies.find_by(api_id: params[:movie_id]).present?
+    })
+  end
+
   private
 
   def api_the_movie

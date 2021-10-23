@@ -9,8 +9,4 @@ class Api::V1::UsersController < Api::ApiController
     render_unprocessable_entity_error(user)
   end
 
-  def teste
-    byebug
-  end
-
 end
