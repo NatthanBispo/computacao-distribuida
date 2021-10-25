@@ -32,7 +32,6 @@ class Movies::TheMovieApiService
   def format_movies(api_movies)
     movies = api_movies.map do |movie|
       {
-        id: movie["id"],
         api_id: movie["id"],
         title: movie["title"],
         imdb_id: movie["imdb_id"],
