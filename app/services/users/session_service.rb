@@ -15,7 +15,7 @@ class Users::SessionService < BusinessProcess::Base
   def find_user
     @user = User.find_for_database_authentication(email: session_params[:email])
 
-    fail([I18n.t('services.session_service.errors.manager_not_found')]) unless @user.present?
+    fail([I18n.t('services.session_service.errors.user_not_found')]) unless @user.present?
   end
 
   def verify_password

@@ -1,0 +1,6 @@
+pt-BR:
+  services:
+    session_service:
+      errors:
+        invalid_params: Email ou senha invalidos
+        user_not_found: Usuário não encontrado
