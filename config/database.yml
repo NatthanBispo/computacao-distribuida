@@ -2,8 +2,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   collation: utf8_general_ci
-  # host: 127.0.0.1
-  host: 172.17.0.2
+  host: <%= ENV['DATABASE_HOST'] %>
   port: 3306
   pool: 5
   timeout: 5000

@@ -11,7 +11,12 @@ COPY Gemfile* ./
 
 RUN bundle install
 
+ARG DATABASE_HOST
+ENV DATABASE_HOST $DATABASE_HOST
+
 COPY . .
+
+RUN rails db:migrate
 
 EXPOSE 3000:3000
 
