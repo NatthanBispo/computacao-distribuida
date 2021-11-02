@@ -16,8 +16,6 @@ ENV DATABASE_HOST $DATABASE_HOST
 
 COPY . .
 
-RUN rails db:migrate
-
 EXPOSE 3000:3000
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
